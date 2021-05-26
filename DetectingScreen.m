@@ -16,7 +16,7 @@ colorVector = [red yellow green cyan blue magenta];
 colorVector = round(colorVector, 4);
 
 % Reading scan directly from phone
-rgbImage = imread('http://192.168.1.107:8080/photo.jpg'); % IP address should be modified
+rgbImage = imread('http://Your server IP/photo.jpg'); % IP address should be modified
 
 % Display the original color image.
 figure(1);
