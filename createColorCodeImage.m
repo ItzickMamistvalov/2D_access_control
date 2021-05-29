@@ -23,8 +23,10 @@ hashMat = [hashMat; hashCode];
 rgbColorCodeImage = hsv2rgb(colorCodeImage);
 fileName = sprintf('%s', hashCode);
 fileName = strcat(fileName, '.png');
-imagesFolder = 'C:\Users\itzic\Desktop\ASUS backup\4th year\IP\Project without PHP combined\Project\colorCodeImages';
-fullFileName = fullfile(imagesFolder, fileName);
+mainPath = pwd;
+imagesFolderName = 'colorCodeImages';
+imagesFolderPath = fullfile(mainPath, imagesFolderName);
+fullFileName = fullfile(imagesFolderPath, fileName);
 imwrite(rgbColorCodeImage, fullFileName);
 figure('Name', 'Your Color Code Image', 'NumberTitle', 'off')
 imshow(rgbColorCodeImage);
