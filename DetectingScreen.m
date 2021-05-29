@@ -17,15 +17,17 @@ colorVector = round(colorVector, 4);
 
 % Reading scan directly from phone
 rgbImage = imread('http://10.0.0.11:8080//photo.jpg'); % IP address should be modified
-
+numOfFiles = 1;
 
 % % Reading images from folder
 % mainPath = pwd;
 % folderPath = fullfile(mainPath, 'test images');
 % imagePattern = fullfile(folderPath, '*.jpeg');
 % imageFiles = dir(imagePattern);
+% numOfFiles = length(imageFiles)
 
-for k = 1 : 1%length(imageFiles)
+for k = 1 : numOfFiles
+%     % If you read the image directly from phone, comment next 3 lines (you already have the rgbImage)
 %     imageName = imageFiles(k).name;
 %     imagePath = fullfile(folderPath, imageName);
 %     rgbImage = imread(imagePath);
@@ -123,8 +125,7 @@ for k = 1 : 1%length(imageFiles)
 
     separatedHsvColorCodeImage = gradientHueMask .* croppedHsvColorCodeImage;
 
-%     figure(length(imageFiles) + k);
-    figure(2);
+    figure(numOfFiles + k);
     subplot(2, 3, 1);
     imshow(croppedRgbColorCodeImage);
     impixelinfo();
@@ -201,8 +202,7 @@ for k = 1 : 1%length(imageFiles)
     % Match the msgbox content up to approved
     [icon, message] = matchMsgBoxContent(approved);
 
-%     figure(length(imageFiles) + k);
-    figure(2);
+    figure(numOfFiles + k);
     subplot(2, 1, 2);
     imshow(icon);
     title(message);
